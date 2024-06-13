@@ -20,6 +20,14 @@ This code base is used to set up a basic PostgreSQL API using Node.js.
 - `migration files`: These files are responsible for creating tables in the PostgreSQL database.
 - `models/index.js`: This file uses the `DATABASE_URL` from the `.env` file.
 
+## Creating Tables in the Database
+
+After setting up, you can create the necessary tables in the database by running the following command:
+
+```bash
+sequelize db:migrate
+```
+
 ## Running the project
 
 After setting up, you can run the project using `npm start`.
