@@ -1,4 +1,5 @@
 const express = require('express');
+const cron = require('node-cron');
 const router = express.Router();
 const { User, Post } = require('../models');
 const { Sequelize, Op, fn, col, where, literal} = require('sequelize');
@@ -47,6 +48,12 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/log', (req, res) => {
+  cron.schedule('*/6 * * * * *', () => {
+    console.log('Logging every 6 seconds');
+  });
 
+  res.send('Started logging every 6 seconds');
+});
 
 module.exports = router;
